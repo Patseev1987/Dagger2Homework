@@ -4,13 +4,14 @@ import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
 import ru.otus.daggerhomework.App
+import javax.inject.Named
 
 @Component(modules = [ColorGeneratorModule::class])
 interface ApplicationComponent {
 
     @Component.Factory
     interface Factory {
-        fun create(@BindsInstance applicationContext: Context): ApplicationComponent
+        fun create(@Named("App") @BindsInstance applicationContext: Context): ApplicationComponent
     }
 
     fun mainActivityComponent(): MainActivityComponent.Factory
